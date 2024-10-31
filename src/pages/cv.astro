@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Phi Nguyen </div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    My focus lies in Computer Vision, Natural Language Processing, and Machine Learning applications, especially in medical imaging and conversational AI. I am motivated by contributing to cutting-edge research and developing intelligent solutions to complex problems, particularly in healthcare.
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+
+      <TimeLineElement
+      title="PhD in Computer Science"
+      subtitle="05/2025 -  @ Technical University of Munich, Munich, Germany"
+    >
+      Research: MRI-reconstruction. Supervised by Prof. Dr. Daniel Rueckert.
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="MSc in Computer Science"
+      subtitle="08/2021 - 10/2023 @ Vietnam National University, University of Engineering and Technology, Hanoi, Vietnam"
+    >
+      CGPA: 3.59 / 4.00 | Thesis: 9.5 / 10
+    </TimeLineElement>
+    <TimeLineElement
+      title="B.Sc in Computer Science"
+      subtitle="06/2016 - 06/2020 @ Vietnam National University, University of Engineering and Technology, Hanoi, Vietnam"
+    >
+      CGPA: 3.49 / 4.00 | Thesis: 9.8 / 10 (Best Thesis Award)
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Research Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Research Assistant — VinUni-Illinois Smart Health Center"
+      subtitle="05/2023 - Present @ VinUniversity, Hanoi, Vietnam"
+    >
+      <u><em>Machine Learning for Echocardiography:</em></u> Focus on left ventricle segmentation and ultrasound video synthesis from segmentation maps for heart parameter quantification.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Research Assistant — Artificial Intelligence Laboratory"
+      subtitle="09/2021 - Present @ Vietnam National University, Hanoi, Vietnam"
+    >
+      <u><em>Medical Imaging and Computer Vision:</em></u> Research in robust left-ventricle segmentation and automated heart parameter quantification.
+    </TimeLineElement>
+    <TimeLineElement
+      title="AI Engineer — Center Of Talent In AI"
+      subtitle="03/2020 - 03/2021 @ COTAI, Hanoi, Vietnam"
+    >
+      <u><em>Conversational AI for E-commerce:</em></u> Developed a dialog system automating up to 60% of chat interactions on Kha Kim's e-commerce platform.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Publications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li><b>MedIDM: Synthesis Medical Video Segmentation Dataset via Implicit Motion Representation from Diffusion Model.</b> (2024, under review) Nguyen Van Phi, et al.</li>
+    <li><b>Training-Free Condition Video Diffusion Models for Spatial-Semantic Echocardiogram Synthesis.</b> (2024, MICCAI) Nguyen Van Phi, et al.</li>
+    <li><b>Echocardiography video synthesis from end diastolic semantic map via diffusion model.</b> (2023, ICASSP) Nguyen Van Phi, et al.</li>
+    <li><b>Echocardiography Segmentation Using Neural Ordinary Differential Equation Based Diffiomorphic Registration Field.</b> (2023, preprint) Nguyen Van Phi, et al.</li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Work Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Teaching Assistant"
+      subtitle="12/2020 - Present @ VNU University of Engineering and Technology, Hanoi, Vietnam"
+    >
+      Courses: Introduction to Programming, Advanced Programming, Computer Graphics, Data Processing with Python.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Awards & Honours</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li><b>Third Prize, Nghe An Provincial Excellent Student Programming Contest (2015)</b></li>
+    <li><b>Third Prize, Procon Contest (2018)</b></li>
+    <li><b>Encouragement Scholarship, VNU University of Engineering and Technology (2016-2018)</b></li>
+  </ul>
+</BaseLayout>

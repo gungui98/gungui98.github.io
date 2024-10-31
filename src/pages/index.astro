@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import HorizontalCardPublication from "../components/HorizontalCardPublication.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug";
+import { Code } from "astro:components";
+import { Image } from "astro:assets";
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hello there 👋</div>
+    <div class="text-5xl font-bold">I'm Phi!</div>
+    <div class="text-3xl py-3 font-bold">Machine Learning Researcher</div>
+    <div class="py-2">
+      <text class="text-lg">
+        <p>
+          My name is <span class="tooltip" data-tip="🌎 First: Phi | Last: Nguyen">Phi Nguyen Van (🇻🇳)</span>, and I'm passionate about computer vision and natural language processing with an emphasis on applications in medical imaging. I am PhD student on computer science at Technical University of Munich, Germany, focus on MRI-reconstruction, generative modelling and implicit representation. I completed my MSc in Computer Science at Vietnam National University in 2023, with research primarily focused on echocardiography analysis, machine learning in medical imaging, and conversational AI for e-commerce.
+        </p>
+
+        <div tabindex="0" class="collapse my-2 collapse-arrow rounded-lg border border-current">
+          <input type="checkbox" />
+          <div class="collapse-title text-lg font-bold">Academic Interests</div>
+          <div class="collapse-content">
+            <p>My academic journey has led me to specialize in areas within machine learning, particularly in <b>medical imaging</b> for tasks such as echocardiography analysis, segmentation, and synthesis. I am also interested in the development of <b>conversational AI systems</b> for automated processes in e-commerce.</p>
+          </div>
+        </div>
+
+        <div tabindex="0" class="collapse my-2 collapse-arrow rounded-lg border border-current">
+          <input type="checkbox" />
+          <div class="collapse-title text-lg font-bold">Contact</div>
+          <div class="collapse-content">
+            <p class="py-2">
+              You can reach me at:
+              <ul>
+                <li>• <a class="link" href="mailto:phinv@vnu.edu.vn">phinv@vnu.edu.vn</a> for academic and research inquiries</li>
+                <li>• <a class="link" href="mailto:gungui98@gmail.com">gungui98@gmail.com</a> for other matters</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+
+        <p class="py-2">
+          Here, you'll also find my blog, where I document and share my research experiences and technical insights into various machine learning applications.
+        </p>
+      </text>
+    </div>
+    <div class="mt-2">
+      <a class="btn btn-outline" href="https://github.com/gungui98" target="_blank"> GitHub</a>
+      <a class="btn btn-outline" href="/blog"> Blog</a>
+      <a class="btn btn-outline" href="/projects"> Projects</a>
+      <a class="btn btn-outline" href="mailto:phinv@vnu.edu.vn" target="_blank"> Email</a>
+    </div>
+  </div>
+
+
+
+  <div class="text-3xl w-full font-bold mb-2">Updates</div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+      <li>
+        <b>[19/09/24]</b> I received three prestigious PhD offers from the <b>Technical University of Munich, National University of Singapore </b> and <b>Nanyang Technological University</b>. I am excited to continue my research journey on medical imaging under the supervision of reknown <b>Prof. Dr. Daniel Rueckert</b> at the <b>Technical University of Munich</b>.
+
+      </li>
+      <li>
+        <b>[17/06/24]</b> Our paper <a target="_blank" href="https://arxiv.org/abs/2408.03035" class="font-medium underline hover:no-underline"><b>Training-Free Condition Video Diffusion Models for Single Frame Spatial-Semantic Echocardiogram Synthesis</b></a> has been accepted to MICCAI 2024! This work demonstrates a new method for generating echocardiograms without additional training data, presented using 3D-Unet with Temporal Attention Layers.
+      </li>
+      <li>
+        <b>[12/04/24]</b> Our paper <a target="_blank" href="https://opg.optica.org/abstract.cfm?uri=ol-49-9-2465" class="font-medium underline hover:no-underline"><b>Echocardiography Video Synthesis from End Diastolic Semantic Map via Diffusion Model</b></a> has been accepted to ICASSP 2024! This research leverages diffusion models for video synthesis from echocardiogram semantic maps, introducing an innovative approach for single-segment cardiac video generation.
+      </li>
+      <li>
+        <b>[08/01/24]</b> Our journal article <a target="_blank" href="https://www.frontiersin.org/articles/10.3389/fcvm.2023.1185172" class="font-medium underline hover:no-underline"><b>Ensemble Learning of Myocardial Displacements for Myocardial Infarction Detection in Echocardiography</b></a> has been published in Frontiers in Cardiovascular Medicine! This paper presents an ensemble method for myocardial infarction detection using echocardiography, enhancing diagnostic accuracy in myocardial tracking applications.
+      </li>
+    </ul>ass="text-3xl w-full font-bold mb-5 mt-10"><a href="/blog/">Publications</a></div>
+  </div>
+
+  
+  <HorizontalCardPublication
+    badge="MICCAI 2024"
+    title="Training-Free Condition Video Diffusion Models for Single Frame Spatial-Semantic Echocardiogram Synthesis"
+    authors={["Van Phi Nguyen", "Tri Nhan Luong Ha", "Huy Hieu Pham", "Quoc Long Tran"]}
+    author_index={0}
+    img="/images/projects/miccai.jpg"
+    abstract="Introducing a method for synthesizing echocardiograms using single-frame segmentation without requiring additional training, using 3D-Unet with temporal attention layers. Tested on CAMUS and EchoNet-Dynamic datasets."
+    url="https://link.springer.com/chapter/10.1007/978-3-031-72089-5_63"
+  />
+<HorizontalCardPublication
+    badge="Under Review"
+    title="MedIDM: Synthesis Medical Video Segmentation Dataset via Implicit Motion Representation from Diffusion Model"
+    authors={["Phi Nguyen Van", "Tri Nhan Luong Ha", "Minh Nguyen Tuan", "Huy Hieu Pham", "Quoc Long Tran"]}
+    author_index={0}
+    img="/images/projects/medidm.jpg"
+    abstract="This work presents MedIDM, a synthetic medical video segmentation dataset using an implicit motion representation model for training and evaluation purposes."
+    url="https://arxiv.org/abs/2306.09687"
+  />
+  <HorizontalCardPublication
+    badge="arXiv Preprint"
+    title="Echocardiography Segmentation Using Neural ODE-based Diffeomorphic Registration Field"
+    authors={["Phi Nguyen Van", "Huy Hieu Pham", "Quoc Long Tran"]}
+    author_index={0}
+    img="/images/projects/echocardiography_segmentation.jpg"
+    abstract="This paper proposes a novel echocardiography segmentation approach using Neural ODE-based diffeomorphic registration fields."
+    url="https://arxiv.org/abs/2306.09687"
+  />
+  <HorizontalCardPublication
+    badge="Frontiers in Cardiovascular Medicine (Vol. 10)"
+    title="Ensemble Learning of Myocardial Displacements for Myocardial Infarction Detection in Echocardiography"
+    authors={["Tuan Nguyen", "Phi Nguyen", "Dai Tran", "Hung Pham", "Quang Nguyen", "Thanh Le", "Hanh Van", "Bach Do", "Phuong Tran", "Vinh Le", "Thuy Nguyen", "Long Tran", "Hieu Pham"]}
+    author_index={1}
+    img="/images/projects/myocardial_detection.jpg"
+    abstract="This paper introduces an ensemble learning method for myocardial displacement tracking, aiding myocardial infarction detection using echocardiography."
+    url="https://www.frontiersin.org/articles/10.3389/fcvm.2023.1185172"
+  />
+  <HorizontalCardPublication
+    badge="ICASSP 2024"
+    title="Echocardiography Video Synthesis from End Diastolic Semantic Map via Diffusion Model"
+    authors={["Phi Nguyen Van", "Minh Duc Tran", "Huy Hieu Pham", "Quoc Long Tran"]}
+    author_index={0}
+    img="/images/projects/icassp2024.jpg"
+    abstract="A novel approach to synthesize echocardiography video sequences from end-diastolic segmentation maps using diffusion models, presented at ICASSP 2024."
+    url="https://arxiv.org/abs/2306.09687"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10"><a href="/projects">Teaching</a></div>
+  </div>
+
+  <HorizontalCard
+    title="Data Processing with Python"
+    img="https://camo.githubusercontent.com/python-logo.jpg"
+    desc="Course content for Data Processing with Python."
+    url="https://github.com/gungui98/COMP-Python"
+    badge="Teaching"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Introduction to Computer Graphics"
+    img="/images/projects/graphics_lecture.png"
+    desc="Lecture materials for Introduction to Computer Graphics."
+    url="https://tricolor-riddle-c08.notion.site/Intro-to-Computer-Graphics"
+    badge="Teaching"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Advanced Programming Techniques"
+    img="https://scijinks.gov/programming-graphic.png"
+    desc="Course materials for Advanced Programming at VNU."
+    url="https://github.com/gungui98/ADV-PROG"
+    badge="Teaching"
+  />
+</BaseLayout>
